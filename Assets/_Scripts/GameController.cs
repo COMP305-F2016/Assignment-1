@@ -4,6 +4,11 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
+    //PRIVATE INSTANCE VARIABLES +++++++
+    // The values are to be printing
+    private int score;
+    private int waveNumber;
+    private int lives;
 
     // Our enemy to spawn
     public Transform enemy;
@@ -25,17 +30,61 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Text waveText;
     public Text livesText;
-    // The values we'll be printing
-    private int score = 0;
-    private int waveNumber = 0;
-    private int lives = 5;
-
+ 
     [Header("Game Objects")]
     public GameObject snowman;
+
+    //PUBLIC PROPERTIES +++++++
+    public int LivesValue {
+        get {
+            return this.lives;
+        }
+        set {
+            this.lives = value;
+            if (this.lives <= 0)
+            {
+                //this._endGame();
+            }
+            else {
+                this.livesText.text = "Lives: " + this.LivesValue;
+
+            }
+
+        }
+    }
+
+    public int ScoreValue
+    {
+        get
+        {
+            return this.score;
+        }
+        set
+        {
+            this.score = value;
+            this.scoreText.text = "Score: " + this.ScoreValue;  
+        }
+    }
+
+    public int WaveValue
+    {
+        get
+        {
+            return this.waveNumber;
+        }
+        set
+        {
+            this.waveNumber = value;
+            this.waveText.text = "Wave: " + this.WaveValue;
+        }
+    }
 
     // Use this for initialization
     void Start()
     {
+        this.lives = 5;
+        this.score = 0;
+        this.waveNumber = 0;
         StartCoroutine(SpawnEnemies());
 
         //instantiate snowflake
@@ -103,5 +152,7 @@ public class GameController : MonoBehaviour
         lives -= decrease;
         livesText.text = "Lives: " + lives;
     }
+
+
 }
 
