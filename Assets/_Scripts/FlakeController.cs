@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackgroundController : MonoBehaviour{
-
+public class FlakeController : MonoBehaviour {
     // PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++++++++
-    private float _speed;
+    private int _speed;
+    private int _drift;
     private Transform _transform;
 
     // PUBLIC PROPERTIES
-    public float Speed
+    public int Speed
     {
         get
         {
@@ -20,12 +20,23 @@ public class BackgroundController : MonoBehaviour{
         }
     }
 
+    public int Drift
+    {
+        get
+        {
+            return this._drift;
+        }
+        set
+        {
+            this._drift = value;
+        }
+    }
+
 
     // Use this for initialization
     void Start()
     {
         this._transform = this.GetComponent<Transform>();
-
         this._reset();
     }
 
@@ -37,14 +48,13 @@ public class BackgroundController : MonoBehaviour{
     }
 
     /**
-	 * this method moves the game object move to left of the screen by _speed px every frame
+	 * this method moves the game object down the screen by _speed px every frame
 	 */
     private void _move()
     {
         Vector2 newPosition = this._transform.position;
-
-        newPosition.x -= this._speed;
-
+        newPosition.y -= this.Speed*.005f;
+        newPosition.x += this.Drift*.005f;
         this._transform.position = newPosition;
     }
 
@@ -53,18 +63,19 @@ public class BackgroundController : MonoBehaviour{
 	 */
     private void _checkBounds()
     {
-        if (this._transform.position.x <= -1f)
+        if (this._transform.position.y <= -6.0f)
         {
             this._reset();
         }
-    }
+     }
 
     /**
 	 * this method resets the game object to the original position
 	 */
     private void _reset()
     {
-        this._speed = 0.01f;
-        this._transform.position = new Vector2(0f, 0f);       
+        this.Speed = Random.Range(5, 10);        
+        this.Drift = Random.Range(-2, 2);
+        this._transform.position = new Vector2(Random.Range(-5.0f, 5.0f),5.0f);       
     }
 }

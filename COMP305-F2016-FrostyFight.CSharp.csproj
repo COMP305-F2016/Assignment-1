@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\BackgroundController.cs" />
     <Compile Include="Assets\_Scripts\BallController.cs" />
+    <Compile Include="Assets\_Scripts\FlakeController.cs" />
     <Compile Include="Assets\_Scripts\GameController.cs" />
     <Compile Include="Assets\_Scripts\SnowmanController.cs" />
     <Compile Include="Assets\_Scripts\VirusController.cs" />

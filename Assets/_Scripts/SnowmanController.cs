@@ -24,6 +24,13 @@ public class SnowmanController : MonoBehaviour {
     // What sound to play when we're shooting
     public AudioClip shootSound;
 
+    // PUBLIC INSTANCE VARIABLES 
+    public GameController gameController;
+
+    [Header("Sounds")]
+    public AudioSource thunderSound;
+    public AudioSource yaySound;
+
     // Reference to our AudioSource component
     private AudioSource audioSource;
 
@@ -42,6 +49,8 @@ public class SnowmanController : MonoBehaviour {
         Rotation();
         // Move the player's body
         Movement();
+        //Check Bounds
+        checkBounds();
 
         // a foreach loop will go through each item inside of
         // shootButton and do whatever we placed in {}s using the
@@ -120,9 +129,30 @@ public class SnowmanController : MonoBehaviour {
         }
     }
 
+    private void checkBounds()
+    {
+        if (this.transform.position.y <= -6.0f || this.transform.position.y >= 6.0f)
+        {
+            this.reset();
+        }
+
+        if (this.transform.position.x <= -6.0f || this.transform.position.x >= 6.0f)
+        {
+            this.reset();
+        }
+    }
+
+    /**
+	 * this method resets the game object to the original position
+	 */
+    private void reset()
+    {
+         this.transform.position = new Vector2(Random.Range(-5.0f, 5.0f), 0f);
+    }
+
     // Creates a ball and gives it an initial position in
     // front of the ship.
-   void ShootBall()
+    void ShootBall()
     {
         audioSource.PlayOneShot(shootSound, 1.0f);
 
@@ -136,5 +166,17 @@ public class SnowmanController : MonoBehaviour {
         ballPos.x += (Mathf.Cos((rotationAngle) * Mathf.Deg2Rad) * -ballDistance);
         ballPos.y += (Mathf.Sin((rotationAngle) * Mathf.Deg2Rad) * -ballDistance);
         Instantiate(ball, ballPos, this.transform.rotation);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.CompareTag("SnowFlake"))
+        {
+            //this.yaySound.Play();
+            this.gameController.IncreaseScore(10);
+            Debug.Log("SnowFlake hit"+this.gameController.scoreText);
+        }    
+
     }
 }

@@ -8,6 +8,10 @@ public class GameController : MonoBehaviour
     // Our enemy to spawn
     public Transform enemy;
 
+    //PUBLIC INSTANCE VARIABLES
+    public int flakeNumber = 3;
+    public GameObject snowflake;
+
     [Header("Wave Properties")]
     // We want to delay our code at certain times
     public float timeBeforeSpawning = 1.5f;
@@ -26,10 +30,18 @@ public class GameController : MonoBehaviour
     private int waveNumber = 0;
     private int lives = 5;
 
+    [Header("Game Objects")]
+    public GameObject snowman;
+
     // Use this for initialization
     void Start()
     {
         StartCoroutine(SpawnEnemies());
+
+        //instantiate snowflake
+        for (int flakeNumber = 0; flakeNumber < this.flakeNumber; flakeNumber++) {
+            Instantiate(this.snowflake);
+        }
     }
 
     // Coroutine used to spawn enemies
@@ -42,7 +54,7 @@ public class GameController : MonoBehaviour
         while (true)
         {
             // Don't spawn anything new until all of the previous wave's enemies are dead
-            if (currentNumberOfEnemies <= 50)
+            if (currentNumberOfEnemies <= 10)
             {
                 waveNumber++;
                 waveText.text = "Wave: " + waveNumber;
@@ -83,6 +95,7 @@ public class GameController : MonoBehaviour
     {
         score += increase;
         scoreText.text = "Score: " + score;
+        Debug.Log("Score: " + score);
     }
 
     public void DecreaseLives(int decrease)
