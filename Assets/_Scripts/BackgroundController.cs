@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿///-----------------------------------------------------------------
+///   Namespace:      COMP305-F2016-FrostyFight
+///   Class:          BackgroundController
+///   Description:    This controls the background behavior 
+///   Author:         Angela Liu                    Date: September 27,2016
+///   Notes:          Background controller
+///   Revision History: V1.0
+///   Name: Angela          Date: Sep 27,2016        Description:
+///-----------------------------------------------------------------
+using UnityEngine;
 using System.Collections;
 
 public class BackgroundController : MonoBehaviour{

@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿///-----------------------------------------------------------------
+///   Namespace:      COMP305-F2016-FrostyFight
+///   Class:          BallController
+///   Description:    This controls the snowball behavior 
+///   Author:         Angela Liu                    Date: Oct 1st,2016
+///   Notes:          Snowball controller
+///   Revision History: V1.0
+///   Name: Angela          Date: Sep 27,2016        Description:
+///-----------------------------------------------------------------
+using UnityEngine;
 using System.Collections;
 
 public class BallController : MonoBehaviour {

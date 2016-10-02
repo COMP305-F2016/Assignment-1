@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿///-----------------------------------------------------------------
+///   Namespace:      COMP305-F2016-FrostyFight
+///   Class:          VirusController
+///   Description:    This controls the Virus behavior 
+///   Author:         Angela Liu                    Date: September 30,2016
+///   Notes:          Virus controller
+///   Revision History: V1.0
+///   Name: Angela          Date: Sep 27,2016        Description:
+///-----------------------------------------------------------------
+using UnityEngine;
 using System.Collections;
 
 public class VirusController : MonoBehaviour {

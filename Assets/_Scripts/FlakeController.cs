@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿///-----------------------------------------------------------------
+///   Namespace:      COMP305-F2016-FrostyFight
+///   Class:          SnowmanController
+///   Description:    This controls the snowflake behavior 
+///   Author:         Angela Liu                    Date: September 30,2016
+///   Notes:          Snowflake controller
+///   Revision History: V1.0
+///   Name: Angela          Date: Sep 27,2016        Description:
+///-----------------------------------------------------------------
+using UnityEngine;
 using System.Collections;
 
 public class FlakeController : MonoBehaviour {

@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿///-----------------------------------------------------------------
+///   Namespace:      COMP305-F2016-FrostyFight
+///   Class:          VirusMoveforwardController
+///   Description:    This controls the virus move forward behavior 
+///   Author:         Angela Liu                    Date: Oct 1st,2016
+///   Notes:          Snowman controller
+///   Revision History: V1.0
+///   Name: Angela          Date: Sep 27,2016        Description:
+///-----------------------------------------------------------------
+using UnityEngine;
 using System.Collections;
 
 public class VirusMoveController : MonoBehaviour {
