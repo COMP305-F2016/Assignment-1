@@ -22,14 +22,14 @@ public class VirusController : MonoBehaviour {
     public AudioClip hitSound;
 
     // create an AudioSource variable
-    private AudioSource audio;
+    private AudioSource audio1;
 
     private GameController controller;
 
     // Use this for initialization
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audio1 = GetComponent<AudioSource>();
         controller =
             GameObject
                 .FindGameObjectWithTag("GameController")
@@ -39,7 +39,7 @@ public class VirusController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D theCollision)
     {
         // Uncomment this line to check for collision
-        //Debug.Log("Hit"+ theCollision.gameObject.name);
+        Debug.Log("Hit"+ theCollision.gameObject.name);
         // this line looks for "ball" in the names of
         // anything collided.
         if (theCollision.gameObject.name.Contains("Ball"))
@@ -51,7 +51,7 @@ public class VirusController : MonoBehaviour {
             Destroy(theCollision.gameObject);
 
             // Plays a sound from this object's AudioSource
-            audio.PlayOneShot(hitSound, 1.0f);
+            audio1.PlayOneShot(hitSound, 1.0f);
         }
 
         if (theCollision.gameObject.name.Contains("Snowman"))

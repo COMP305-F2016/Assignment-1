@@ -13,7 +13,7 @@ using System.Collections;
 public class VirusMoveController : MonoBehaviour {
 
     private Transform player;
-    public float speed = 4.0f;
+    public float speed = 2.0f;
 
     // Use this for initialization
     void Start()
